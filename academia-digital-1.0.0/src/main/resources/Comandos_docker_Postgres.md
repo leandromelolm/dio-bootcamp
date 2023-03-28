@@ -16,6 +16,22 @@ Criando um container para executar pgAdmin4
 docker run --name test-pgadmin-postgres-network --network=postgres-network -p 15432:80 -e "PGADMIN_DEFAULT_EMAIL=admin@admin.com" -e "PGADMIN_DEFAULT_PASSWORD=admin" -d dpage/pgadmin4
 ```
 
+Acessar URL http://localhost:15432 e na tela de login do pgAdmin 4 usar o login e senha atribuidos em PGADMIN_DEFAULT_EMAIL e PGADMIN_DEFAULT_PASSWORD.
+
+- Criar um servidor: Server > Register > Server
+
+```
+Tab General
+    Name: Local
+    
+Tab Conection
+    Host name/address: test-postgres
+    Port: 5432
+    Maintenance: postgres
+    Username: postgres
+    Password: postgres123456
+```
+
 <h3>2. Comandos básicos docker</h3>
 
 Iniciar containers do postgres e pgadmin
