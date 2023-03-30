@@ -16,7 +16,7 @@ import java.util.List;
 public class AlunoServiceImpl implements IAlunoService {
 
     @Autowired
-    AlunoRepository repository;
+    private AlunoRepository repository;
 
     @Override
     public Aluno create(AlunoForm form) {
