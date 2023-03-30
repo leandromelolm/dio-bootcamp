@@ -6,6 +6,7 @@ import me.dio.academia.digital.entity.form.AlunoUpdateForm;
 import me.dio.academia.digital.mapper.DozerMapper;
 import me.dio.academia.digital.repository.AlunoRepository;
 import me.dio.academia.digital.service.IAlunoService;
+import me.dio.academia.digital.service.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +26,8 @@ public class AlunoServiceImpl implements IAlunoService {
 
     @Override
     public Aluno get(Long id) {
-        return repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Id de usuário não existe"));
+        return repository.findById(id).orElseThrow(() -> new ResourceNotFoundException(
+                "Entity not found! Id: " + id ));
     }
 
     @Override
