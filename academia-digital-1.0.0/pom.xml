@@ -16,6 +16,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<dozer.version>6.5.2</dozer.version>
+		<springdoc.version>1.6.4</springdoc.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -56,6 +57,16 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>${springdoc.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-webmvc-core</artifactId>
+			<version>${springdoc.version}</version>
 		</dependency>
 	</dependencies>
 
