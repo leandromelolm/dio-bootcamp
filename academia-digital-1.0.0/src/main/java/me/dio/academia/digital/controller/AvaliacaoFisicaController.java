@@ -8,6 +8,7 @@ import me.dio.academia.digital.service.impl.AvaliacaoFisicaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -18,7 +19,7 @@ public class AvaliacaoFisicaController {
     private AvaliacaoFisicaServiceImpl service;
 
     @PostMapping
-    public AvaliacaoFisica create(@RequestBody AvaliacaoFisicaForm form){
+    public AvaliacaoFisica create(@Valid @RequestBody AvaliacaoFisicaForm form){
         return service.create(form);
     }
 
@@ -40,7 +41,7 @@ public class AvaliacaoFisicaController {
     @PutMapping("/{id}")
     public AvaliacaoFisica update(
             @PathVariable Long id,
-            @RequestBody AvaliacaoFisicaUpdateForm updateForm){
+            @Valid @RequestBody AvaliacaoFisicaUpdateForm updateForm){
         return service.update(id, updateForm);
     }
 
