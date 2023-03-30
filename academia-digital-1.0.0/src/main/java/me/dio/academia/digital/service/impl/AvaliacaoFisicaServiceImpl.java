@@ -44,8 +44,8 @@ public class AvaliacaoFisicaServiceImpl implements IAvaliacaoFisicaService {
 
     @Override
     public List<AvaliacaoFisicaDTO> getAllByUser(Long userId) {
-//         var entity = repository.findByAlunoId(userId);
-         var entity = repository.findByAvaliacaoAlunoId(userId);
+//         var entity = repository.findByAlunoId(userId); //faz a mesma busca
+         var entity = repository.findByAvaliacaoAlunoId(alunoService.get(userId).getId());
          return DozerMapper.parseListObjects(entity, AvaliacaoFisicaDTO.class);
     }
 
