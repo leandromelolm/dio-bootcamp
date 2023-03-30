@@ -3,6 +3,7 @@ package me.dio.academia.digital.service.impl;
 import me.dio.academia.digital.entity.Aluno;
 import me.dio.academia.digital.entity.form.AlunoForm;
 import me.dio.academia.digital.entity.form.AlunoUpdateForm;
+import me.dio.academia.digital.mapper.DozerMapper;
 import me.dio.academia.digital.repository.AlunoRepository;
 import me.dio.academia.digital.service.IAlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,17 +19,13 @@ public class AlunoServiceImpl implements IAlunoService {
 
     @Override
     public Aluno create(AlunoForm form) {
-        Aluno aluno = new Aluno();
-        aluno.setNome(form.getNome());
-        aluno.setCpf(form.getCpf());
-        aluno.setBairro(form.getBairro());
-        aluno.setDataDeNascimento(form.getDataDeNascimento());
-        return repository.save(aluno);
+        var entity = DozerMapper.parseObject(form, Aluno.class);
+        return repository.save(entity);
     }
 
     @Override
     public Aluno get(Long id) {
-        return null;
+        return repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Id de usuário não existe"));
     }
 
     @Override
@@ -38,11 +35,16 @@ public class AlunoServiceImpl implements IAlunoService {
 
     @Override
     public Aluno update(Long id, AlunoUpdateForm formUpdate) {
-        return null;
+        Aluno aluno = get(id);
+        Aluno entity = DozerMapper.parseObject(formUpdate, Aluno.class);
+        entity.setId(id);
+        entity.setCpf(aluno.getCpf());
+        return repository.save(entity);
     }
 
     @Override
     public void delete(Long id) {
-
+        get(id);
+        repository.deleteById(id);
     }
 }
