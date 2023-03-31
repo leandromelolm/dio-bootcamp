@@ -6,6 +6,7 @@ import me.dio.academia.digital.entity.form.AlunoUpdateForm;
 import me.dio.academia.digital.mapper.DozerMapper;
 import me.dio.academia.digital.repository.AlunoRepository;
 import me.dio.academia.digital.service.IAlunoService;
+import me.dio.academia.digital.service.exceptions.DatabaseException;
 import me.dio.academia.digital.service.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,8 +19,16 @@ public class AlunoServiceImpl implements IAlunoService {
     @Autowired
     private AlunoRepository repository;
 
+    public boolean existCpf(String cpf){
+        if(repository.existsByCpf(cpf)){
+            throw new DatabaseException("Erro: CPF "+ cpf +" já cadastrado!");
+        }
+        return false;
+    }
+
     @Override
     public Aluno create(AlunoForm form) {
+        existCpf(form.getCpf());
         var entity = DozerMapper.parseObject(form, Aluno.class);
         return repository.save(entity);
     }
