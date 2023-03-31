@@ -17,7 +17,8 @@ public class OpenApiConfig {
                 .info(new Info()
                         .title("RESTful API with Java 17 and Spring Boot 3")
                         .version("v1")
-                        .description("Projeto com CRUD de pessoa")
+                        .description("Projeto de um sistema simples de academia para cadastro de aluno" +
+                                " e registro de avaliações")
                         .termsOfService("url")
                         .license(
                                 new License()

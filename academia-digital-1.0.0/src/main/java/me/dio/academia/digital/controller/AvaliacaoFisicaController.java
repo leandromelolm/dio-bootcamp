@@ -12,7 +12,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/avaliacoes")
+@RequestMapping("/api/v1/avaliacoes")
 public class AvaliacaoFisicaController {
 
     @Autowired
