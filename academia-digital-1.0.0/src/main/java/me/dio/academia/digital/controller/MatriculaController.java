@@ -20,9 +20,9 @@ public class MatriculaController {
 
     @PostMapping
     public ResponseEntity<Object> create(@RequestBody @Valid MatriculaForm form){
-        if (service.existMatriculaToAluno(form.getAlunoId())){
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("Matrícula já existe para usuário");
-        }
+//        if (service.existMatriculaToAluno(form.getAlunoId())){
+//            return ResponseEntity.status(HttpStatus.CONFLICT).body("Matrícula já existe para usuário");
+//        }
         return ResponseEntity.status(HttpStatus.CREATED).body(service.create(form));
     }
 
