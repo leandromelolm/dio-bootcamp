@@ -64,8 +64,19 @@ public class AlunoServiceImpl implements IAlunoService {
     @Override
     public void delete(Long id) {
         get(id);
-        avaliacaoRepository.deleteAll(avaliacaoRepository.findByAvaliacaoAlunoId(id));
-        matriculaRepository.delete(matriculaRepository.findByAlunoId(id)); // CascadeType.ALL: Deleta matricula e aluno
-//        repository.deleteById(id);
+//        avaliacaoRepository.deleteAll(avaliacaoRepository.findByAvaliacaoAlunoId(id));
+
+        // CascadeType.ALL: Ao remover matricula remove aluno.
+        // CascadeType.REMOVE: Ao remover aluno remove  lista de Avaliações
+//        matriculaRepository.delete(matriculaRepository.findByAlunoId(id));
+
+        try{
+            repository.deleteById(id);
+        }catch (Exception e){
+            throw new DatabaseException("Violação de integridade de dados! Aluno não pode ser removido" +
+                    " porque tem uma matrícula já cadastrada para esse aluno." +
+                    " Quantidade de Avaliações: "+ avaliacaoRepository.findByAvaliacaoAlunoId(id).size() +
+                    ". Matrícula ID: "+ matriculaRepository.findByAlunoId(id).getId());
+        }
     }
 }
