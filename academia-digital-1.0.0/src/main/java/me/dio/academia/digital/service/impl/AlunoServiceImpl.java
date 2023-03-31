@@ -5,6 +5,8 @@ import me.dio.academia.digital.entity.form.AlunoForm;
 import me.dio.academia.digital.entity.form.AlunoUpdateForm;
 import me.dio.academia.digital.mapper.DozerMapper;
 import me.dio.academia.digital.repository.AlunoRepository;
+import me.dio.academia.digital.repository.AvaliacaoFisicaRepository;
+import me.dio.academia.digital.repository.MatriculaRepository;
 import me.dio.academia.digital.service.IAlunoService;
 import me.dio.academia.digital.service.exceptions.DatabaseException;
 import me.dio.academia.digital.service.exceptions.ResourceNotFoundException;
@@ -18,6 +20,12 @@ public class AlunoServiceImpl implements IAlunoService {
 
     @Autowired
     private AlunoRepository repository;
+
+    @Autowired
+    private AvaliacaoFisicaRepository avaliacaoRepository;
+
+    @Autowired
+    private MatriculaRepository matriculaRepository;
 
     public boolean existCpf(String cpf){
         if(repository.existsByCpf(cpf)){
@@ -56,6 +64,8 @@ public class AlunoServiceImpl implements IAlunoService {
     @Override
     public void delete(Long id) {
         get(id);
-        repository.deleteById(id);
+        avaliacaoRepository.deleteAll(avaliacaoRepository.findByAvaliacaoAlunoId(id));
+        matriculaRepository.delete(matriculaRepository.findByAlunoId(id)); // CascadeType.ALL: Deleta matricula e aluno
+//        repository.deleteById(id);
     }
 }
