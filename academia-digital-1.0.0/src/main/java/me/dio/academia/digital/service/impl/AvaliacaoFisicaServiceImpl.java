@@ -7,6 +7,7 @@ import me.dio.academia.digital.entity.form.AvaliacaoFisicaForm;
 import me.dio.academia.digital.entity.form.AvaliacaoFisicaUpdateForm;
 import me.dio.academia.digital.mapper.DozerMapper;
 import me.dio.academia.digital.repository.AvaliacaoFisicaRepository;
+import me.dio.academia.digital.service.IAlunoService;
 import me.dio.academia.digital.service.IAvaliacaoFisicaService;
 import me.dio.academia.digital.service.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class AvaliacaoFisicaServiceImpl implements IAvaliacaoFisicaService {
     private AvaliacaoFisicaRepository repository;
 
     @Autowired
-    private AlunoServiceImpl alunoService;
+    private IAlunoService alunoService;
 
     @Override
     public AvaliacaoFisica create(AvaliacaoFisicaForm form) {

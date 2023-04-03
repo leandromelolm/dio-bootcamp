@@ -2,7 +2,7 @@ package me.dio.academia.digital.controller;
 
 import me.dio.academia.digital.entity.Matricula;
 import me.dio.academia.digital.entity.form.MatriculaForm;
-import me.dio.academia.digital.service.impl.MatriculaServiceImpl;
+import me.dio.academia.digital.service.IMatriculaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ import java.util.List;
 public class MatriculaController {
 
     @Autowired
-    MatriculaServiceImpl service;
+    IMatriculaService service;
 
     @PostMapping
     public ResponseEntity<Object> create(@RequestBody @Valid MatriculaForm form){

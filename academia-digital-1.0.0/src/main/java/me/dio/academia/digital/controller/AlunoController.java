@@ -3,7 +3,7 @@ package me.dio.academia.digital.controller;
 import me.dio.academia.digital.entity.Aluno;
 import me.dio.academia.digital.entity.form.AlunoForm;
 import me.dio.academia.digital.entity.form.AlunoUpdateForm;
-import me.dio.academia.digital.service.impl.AlunoServiceImpl;
+import me.dio.academia.digital.service.IAlunoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,7 +15,7 @@ import java.util.List;
 public class AlunoController {
 
     @Autowired
-    private AlunoServiceImpl service;
+    private IAlunoService service;
 
     @GetMapping("/{id}")
     public Aluno getById(@PathVariable Long id){

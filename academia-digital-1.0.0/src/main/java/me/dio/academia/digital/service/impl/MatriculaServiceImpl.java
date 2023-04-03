@@ -3,6 +3,7 @@ package me.dio.academia.digital.service.impl;
 import me.dio.academia.digital.entity.Matricula;
 import me.dio.academia.digital.entity.form.MatriculaForm;
 import me.dio.academia.digital.repository.MatriculaRepository;
+import me.dio.academia.digital.service.IAlunoService;
 import me.dio.academia.digital.service.IMatriculaService;
 import me.dio.academia.digital.service.exceptions.DatabaseException;
 import me.dio.academia.digital.service.exceptions.ResourceNotFoundException;
@@ -18,7 +19,7 @@ public class MatriculaServiceImpl implements IMatriculaService {
     private MatriculaRepository repository;
 
     @Autowired
-    private AlunoServiceImpl alunoService;
+    private IAlunoService alunoService;
 
     public boolean existMatriculaToAluno(Long id){
         if(repository.existsByAlunoId(id)){
