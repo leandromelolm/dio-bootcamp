@@ -1,8 +1,13 @@
-<h1>Conhecendo o Projeto Spring Data JPA na Prática </h1>
-<p> Sejam bem-vindos ao projeto de LAB <strong>Conhecendo o Projeto Spring Data JPA na Prática</strong> oferecido gratuitamente pela plataforma de cursos online <a href="https://dio.me/"><strong> Digital Innovation One</strong></a>.<br>
+<h1>Sobre o projeto</h1>
+
+Este repositório foi criado para fins de estudo e o projeto foi realizado na lab <strong>Conhecendo Spring Data JPA na prática com Java</strong> do BootCamp Banco Pan Java Developer disponibilizado na <a href="https://dio.me/"><strong> Digital Innovation One</strong></a>. O curso foi
+ministrado pela professora [cami-la](https://www.linkedin.com/in/cami-la/ "cami-la").
+
 
 <h2>🎯 Objetivo do Projeto</h2>
-<p>Ao final deste projeto, o Dev irá conhecer os principais conceitos de mapeamento objeto relacional (ORM) usando o <strong>Spring Data JPA</strong>. Para isso, uma <strong>API RESTful</strong> será desenvolvida com ênfase na modelagem de suas entidades, no domínio de uma academia de ginástica.</p>
+<p>Conhecer os principais conceitos de mapeamento objeto relacional (ORM) usando o <strong>Spring Data JPA</strong>. 
+
+Uma <strong>API RESTful</strong> foi desenvolvida com ênfase na modelagem de suas entidades, no domínio de uma academia de ginástica.</p>
 
 <h2>
 🛑 Pré-requistos
@@ -29,6 +34,8 @@
     <li>IDE IntelliJ</li>
     <li>Java 11</li>
     <li>Maven</li>
+    <li>SpringBoot 2.6.1</li>
+    <li>Dozer 6.5.2</li>
     <li><strong>Spring Web</strong></li>
     <li><strong>Spring Data JPA</strong></li>
     <li><strong>PostgreSQL Driver</strong></li>
@@ -79,23 +86,3 @@ Indica qual é o lado inverso ou não dominante da relação.
     <li><a href="https://docs.spring.io/spring-boot/docs/2.0.x/reference/html/common-application-properties.html">Common application properties</a></li>
     <li><a href="https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.repositories">Spring Data JPA - Reference Documentation</a></li>
 </ul>
-
-
-<h2> 🤝 Contribuindo </h2>
-
-Este repositório foi criado para fins de estudo, então contribua com ele.
-Se te ajudei de alguma forma, ficarei feliz em saber. E caso você conheça alguém que se identidique com o conteúdo, não deixe de compatilhar.
-
-Se possível:
-
-⭐️  Star o projeto
-
-🐛 Encontrar e relatar issues
-
-------------
-
-Disponibilizado com ♥ por [cami-la](https://www.linkedin.com/in/cami-la/ "cami-la").
-
-
-
-
